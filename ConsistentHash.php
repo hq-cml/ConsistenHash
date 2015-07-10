@@ -55,3 +55,29 @@
         }
     }
     
+    $c_hash = new ConsistentHash();
+    
+    $c_hash->hash_add_slot('slot1');
+    $c_hash->hash_add_slot('slot2');
+    /*
+    $c_hash->hash_add_slot('slot3');
+    $c_hash->hash_add_slot('slot4');
+    $c_hash->hash_add_slot('slot5');
+    */
+    
+    echo "key1 in ".$c_hash->lookup('key1')."\n";
+    echo "key2 in ".$c_hash->lookup('key2')."\n";
+    echo "key3 in ".$c_hash->lookup('key3')."\n\n";
+    
+    $c_hash->hash_delete_slot('slot2');
+    
+    echo "key1 in ".$c_hash->lookup('key1')."\n";
+    echo "key2 in ".$c_hash->lookup('key2')."\n";
+    echo "key3 in ".$c_hash->lookup('key3')."\n\n";    
+    
+    $c_hash->hash_add_slot('slot6');
+    
+    echo "key1 in ".$c_hash->lookup('key1')."\n";
+    echo "key2 in ".$c_hash->lookup('key2')."\n";
+    echo "key3 in ".$c_hash->lookup('key3')."\n\n";  
+    
