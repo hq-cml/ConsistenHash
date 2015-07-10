@@ -20,5 +20,18 @@
             $this->is_sorted = false;
             return true;
         }
+        
+        function hash_delete_slot($element)
+        {
+            $hash_value = $this->my_hash($element);
+            
+            if(!isset($this->slots_arr[$hash_value]))
+            {
+                unset($this->slots_arr[$hash_value]);
+            }
+            
+            $this->is_sorted = false;
+            return true; 
+        }
     }
     
