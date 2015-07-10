@@ -33,5 +33,25 @@
             $this->is_sorted = false;
             return true; 
         }
+        
+        function lookup($key)
+        {
+            $hash_value = $this->my_hash($key);
+            
+            //°´keyÅÅÐò
+            if(!$this->is_sorted)
+            {
+                krsort($this->slots_arr, SORT_NUMERIC);
+                $this->is_sorted = true;
+            }
+            
+            foreach($this->slots_arr as $pos=>$slot)
+            {
+                if($hash_value >= $pos)
+                    return $slot;
+            }
+            
+            return $this->slots_arr[count($this->slots_arr) - 1];
+        }
     }
     
